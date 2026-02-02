@@ -1,0 +1,33 @@
+{
+  "name": "sveltekit",
+  "version": "0.0.1",
+  "description": "Svelte Kitchen website root.",
+  "private": "true",
+  "license": "MPL-2.0",
+  "author": "nuin",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prepare": "svelte-kit sync || echo ''",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "test:unit": "vitest",
+    "test": "pnpm run test:unit -- --run"
+  },
+  "devDependencies": {
+    "@svelte-kitchen/vite-config": "workspace:*",
+    "@sveltejs/adapter-static": "catalog:sveltekit2",
+    "@sveltejs/kit": "catalog:sveltekit2",
+    "@sveltejs/vite-plugin-svelte": "catalog:svelte5",
+    "@vitest/browser-playwright": "catalog:",
+    "playwright": "catalog:",
+    "svelte": "catalog:svelte5",
+    "svelte-check": "catalog:svelte5",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:",
+    "vitest-browser-svelte": "catalog:"
+  }
+}

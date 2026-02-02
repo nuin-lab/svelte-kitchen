@@ -8,12 +8,17 @@ scripts:
   # Dev
   dev: pnpm "/^dev:.*/"
   dev:website: pnpm --filter website dev
+  dev:sveltekit: pnpm --filter sveltekit dev
 
   # Build
   build: pnpm "/^build:.*/"
   build:website: >-
     pnpm --filter website install &&
     pnpm --filter website build
+  build:sveltekit: >-
+    pnpm --filter sveltekit install &&
+    pnpm --filter sveltekit build &&
+    cp -r ./apps/sveltekit/build ./dist/sveltekit
 
   # Preview
   preview: pnpm build && wrangler dev
