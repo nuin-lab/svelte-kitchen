@@ -1,0 +1,15 @@
+// https://developers.cloudflare.com/workers/wrangler/configuration/
+
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "svelte-kitchen",
+  "compatibility_date": "2026-02-01",
+  "compatibility_flags": ["global_fetch_strictly_public"],
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "dist",
+    "not_found_handling": "404-page"
+  }
+}
