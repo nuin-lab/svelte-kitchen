@@ -10,7 +10,7 @@ scripts:
   dev:website: pnpm --filter website dev
 
   # Build
-  build: pnpm "/^buidl:.*/"
+  build: pnpm "/^build:.*/"
   build:website: >-
     pnpm --filter website install &&
     pnpm --filter website build
