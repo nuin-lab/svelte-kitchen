@@ -1,0 +1,13 @@
+{
+  "name": "@svelte-kitchen/vite-config",
+  "description": "Common settings for svelte apps",
+  "private": "true",
+  "license": "MPL-2.0",
+  "author": "nuin",
+  "type": "module",
+  "main": "./src/index.ts",
+  "packageManager": "pnpm@10.28.0",
+  "devDependencies": {
+    "vite": "catalog:"
+  }
+}
