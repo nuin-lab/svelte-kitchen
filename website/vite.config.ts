@@ -8,5 +8,15 @@ export default mergeConfig(
       outDir: '../dist',
       emptyOutDir: true,
     },
+
+    server: {
+      proxy: {
+        '/sveltekit': {
+          target: 'http://localhost:5174',
+          changeOrigin: true,
+          rewrite: (path) => path,
+        },
+      },
+    },
   }),
 );
