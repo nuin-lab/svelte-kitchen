@@ -8,19 +8,10 @@
     <meta charset="utf-8">
     <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="./src/assets/styles.css">
-
-    <title>Home｜nuinのすべるて調理室</title>
-    <meta name="description" content="Svelteを使った実装をいろいろ試す場">
-
-    <link rel="canonical" href="https://svelte-kitchen.nuin.workers.dev/">
+    %sveltekit.head%
   </head>
 
-  <body>
-    <h1>Svelte Kitchen</h1>
-    <ul>
-      <li><a href="/sveltekit" target="_blank">Sveltekit</a></li>
-    </ul>
+  <body data-sveltekit-preload-data="hover">
+    <div style="display: contents">%sveltekit.body%</div>
   </body>
 </html>

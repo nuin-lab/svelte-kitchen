@@ -57,7 +57,8 @@
   },
   "html": {
     "formatter": {
-      "enabled": true
+      "enabled": true,
+      "indentScriptAndStyle": true
     },
     "linter": {
       "enabled": true
