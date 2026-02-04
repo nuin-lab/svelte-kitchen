@@ -6,19 +6,16 @@
 </script>
 
 <svelte:head>
-  <title>Sveltekit｜nuinのすべるて調理室</title>
+  <title>Intercepting Routes｜nuinのすべるて調理室</title>
 </svelte:head>
 
 <main>
   <section>
-    <h1>Welcome to SvelteKit</h1>
-    <p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-  </section>
-  <section>
-    <h2>Routes</h2>
-    <ul>
-      <li><a href="intercepting-routes">Intercepting Routes</a></li>
-    </ul>
+    <h1>Intercepting Routes</h1>
+    <p>
+      Visit <a href="https://svelte.dev/docs/kit/shallow-routing">svelte.dev/docs/kit/shallow-routing</a> to read the
+      documentation
+    </p>
   </section>
 </main>
 
