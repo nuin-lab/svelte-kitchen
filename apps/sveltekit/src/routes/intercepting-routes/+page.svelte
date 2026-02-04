@@ -3,6 +3,17 @@
    - file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
 
 <script lang="ts">
+  import { onMount } from 'svelte';
+
+  // Types
+  import type { PageProps } from './$types';
+
+  // biome-ignore lint/style/useConst: Intentionally using let for Svelte prop reactivity.
+  let { data }: PageProps = $props();
+
+  onMount(() => {
+    console.table(data);
+  });
 </script>
 
 <svelte:head>
