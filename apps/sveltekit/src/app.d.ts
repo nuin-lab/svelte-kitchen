@@ -7,7 +7,7 @@
 // See https://svelte.dev/docs/kit/types#app.d.ts
 // for information about these interfaces
 
-import type { PhotoData } from './routes/intercepting-routes/lib/scripts';
+import type { PhotoData } from './routes/(children)/intercepting-routes/lib/scripts';
 
 declare global {
   namespace App {
