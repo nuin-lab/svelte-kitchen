@@ -21,14 +21,58 @@
 </svelte:head>
 
 <main>
-  <section>
+  <div>
     <h1>Intercepting Routes</h1>
     <p>
-      Visit <a href="https://svelte.dev/docs/kit/shallow-routing">svelte.dev/docs/kit/shallow-routing</a> to read the
-      documentation
+      公式サイトの
+      <a href="https://svelte.dev/docs/kit/shallow-routing" target="_blank" rel="noreferrer">Shallow routing</a>
+      をもとに実装。
     </p>
-  </section>
+  </div>
+
+  <ul>
+    {#each data.images as {id, alt}, idx}
+      {@const pageId = idx + 1}
+      <li><a href="photos/{pageId}/" onclick={handleClick}>
+        <img src="https://picsum.photos/id/{id}/400.webp" alt={alt}>
+      </a></li>
+    {/each}
+  </ul>
+
 </main>
 
 <style>
+  main {
+    margin-inline: auto;
+    padding: 1rem;
+
+    max-width: 512px;
+
+    border-inline: 1px solid;
+  }
+
+  div {
+    padding: 1rem 0;
+  }
+
+  ul {
+    display: grid;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  li {
+    aspect-ratio: 1;
+
+    overflow: hidden;
+
+    > a {
+      display: flex;
+
+      aspect-ratio: 1;
+    }
+  }
 </style>
