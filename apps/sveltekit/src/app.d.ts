@@ -6,12 +6,17 @@
 
 // See https://svelte.dev/docs/kit/types#app.d.ts
 // for information about these interfaces
+
+import type { PhotoData } from './routes/intercepting-routes/lib/scripts';
+
 declare global {
   namespace App {
     // interface Error {}
     // interface Locals {}
     // interface PageData {}
-    // interface PageState {}
+    interface PageState {
+      modalData: { image: PhotoData } | null;
+    }
     // interface Platform {}
   }
 }

@@ -4,12 +4,50 @@
 
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { goto, preloadData, pushState } from '$app/navigation';
 
   // Types
   import type { PageProps } from './$types';
 
+  import type { PhotoData } from '../intercepting-routes/lib/scripts';
+
+  // Components
+  // biome-ignore lint/correctness/noUnusedImports: To ignroe false positive linting errors caused by Biome's partial Svelte support.
+  import Modal from './lib/components/Modal.svelte';
+
   // biome-ignore lint/style/useConst: Intentionally using let for Svelte prop reactivity.
   let { data }: PageProps = $props();
+
+  // -------------------------------------------------- Functions --------------------------------------------------
+  async function loadData(href: string) {
+    const result = await preloadData(href);
+
+    // Create new history entry or navigate
+    if (result.type === 'loaded' && result.status === 200) {
+      pushState(href, { modalData: { image: result.data.image as PhotoData } });
+    } else {
+      await goto(href);
+    }
+  }
+
+  // -------------------------------------------------- Handlers --------------------------------------------------
+  // biome-ignore lint/correctness/noUnusedVariables: To ignroe false positive linting errors caused by Biome's partial Svelte support.
+  async function handleClick(event: MouseEvent & { currentTarget: EventTarget & HTMLAnchorElement }) {
+    if (
+      // Open in new window
+      event.shiftKey ||
+      // Open in new tab
+      event.ctrlKey || // Windows/Linux
+      event.metaKey // mac
+    ) {
+      return;
+    }
+
+    // Prevent navigation
+    event.preventDefault();
+
+    void loadData(event.currentTarget.href);
+  }
 
   onMount(() => {
     console.table(data);
@@ -39,6 +77,7 @@
     {/each}
   </ul>
 
+  <Modal />
 </main>
 
 <style>
