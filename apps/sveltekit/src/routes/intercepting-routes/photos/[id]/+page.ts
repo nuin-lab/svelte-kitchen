@@ -12,14 +12,18 @@ import { getImage } from '../../lib/scripts';
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = ({ params }) => {
-  const id = parseInt(params.id, 10);
+  if (/^\d+$/.test(params.id)) {
+    const id = Number(params.id);
 
-  if (id) {
-    const image = getImage(id - 1);
+    if (id > 0) {
+      const image = getImage(id - 1);
 
-    if (image) {
-      return { image };
+      if (image) {
+        return { image };
+      }
     }
+  } else {
+    error(400, 'Bad Request: "id" must be an integer');
   }
 
   error(404, 'Not Found');
