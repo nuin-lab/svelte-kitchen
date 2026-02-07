@@ -3,17 +3,9 @@
    - file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
 
 <script lang="ts">
-  import { onMount } from 'svelte';
-
-  // Types
-  import type { PageProps } from './$types';
-
+  // biome-ignore lint/correctness/noUnusedVariables: To ignroe false positive linting errors caused by Biome's partial Svelte support.
   // biome-ignore lint/style/useConst: Intentionally using let for Svelte prop reactivity.
-  let { data }: PageProps = $props();
-
-  onMount(() => {
-    console.table(data);
-  });
+  let { children } = $props();
 </script>
 
-<img src="https://picsum.photos/id/{data.image.id}/1200.webp" alt={data.image.alt}>
+<main>{@render children()}</main>
