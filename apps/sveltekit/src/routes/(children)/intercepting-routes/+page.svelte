@@ -56,6 +56,8 @@
 
 <svelte:head>
   <title>Intercepting Routes｜nuinのすべるて調理室</title>
+
+  <link rel="canonical" href="https://svelte-kitchen.nuin.workers.dev/sveltekit/intercepting-routes/">
 </svelte:head>
 
 <main>
