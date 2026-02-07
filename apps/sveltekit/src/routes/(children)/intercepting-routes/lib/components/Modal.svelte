@@ -93,8 +93,10 @@
   dialog {
     padding: 0;
 
+    height: 100%;
+
     color: var(--black);
-    background-color: var(--white);
+    background: none;
 
     border: none;
     outline: none;
@@ -103,6 +105,10 @@
 
     &::backdrop {
       background-color: rgba(0, 0, 0, 0.75);
+    }
+
+    &[open] {
+      display: flex;
     }
   }
 
