@@ -8,6 +8,9 @@
 
   // biome-ignore lint/correctness/noUnusedVariables: To ignroe false positive linting errors caused by Biome's partial Svelte support.
   let { children } = $props();
+
+  // Styles
+  import '$lib/styles/reset.css';
 </script>
 
 <svelte:head>
