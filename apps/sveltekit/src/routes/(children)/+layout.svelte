@@ -8,4 +8,21 @@
   let { children } = $props();
 </script>
 
-{@render children()}
+<div>{@render children()}</div>
+
+<style>
+  div {
+    margin-inline: auto;
+
+    max-inline-size: 512px;
+    min-block-size: 100dvb;
+
+    border-inline: 1px solid;
+  }
+
+  :global(img) {
+    width: 100%;
+
+    object-fit: contain;
+  }
+</style>

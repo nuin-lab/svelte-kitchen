@@ -82,12 +82,7 @@
 
 <style>
   main {
-    margin-inline: auto;
     padding: 1rem;
-
-    max-width: 512px;
-
-    border-inline: 1px solid;
   }
 
   div {
