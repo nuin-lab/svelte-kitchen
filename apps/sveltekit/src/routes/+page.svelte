@@ -17,7 +17,7 @@
   <section>
     <h2>Routes</h2>
     <ul>
-      <li><a href="intercepting-routes">Intercepting Routes</a></li>
+      <li><a href="intercepting-routes/">Intercepting Routes</a></li>
     </ul>
   </section>
 </main>
