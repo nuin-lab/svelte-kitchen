@@ -10,6 +10,13 @@ export default mergeConfig(
   defineConfig({
     plugins: [sveltekit()],
 
+    server: {
+      port: 5174,
+      hmr: {
+        port: 5174,
+      },
+    },
+
     test: {
       expect: { requireAssertions: true },
 
