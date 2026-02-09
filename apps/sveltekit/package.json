@@ -1,5 +1,5 @@
 {
-  "name": "sveltekit",
+  "name": "@svelte-kitchen/sveltekit",
   "version": "0.0.1",
   "description": "Svelte Kitchen website root.",
   "private": "true",
