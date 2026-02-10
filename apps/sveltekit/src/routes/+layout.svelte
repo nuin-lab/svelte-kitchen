@@ -3,9 +3,6 @@
    - file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
 
 <script lang="ts">
-  // biome-ignore lint/correctness/noUnusedImports: To ignroe false positive linting errors caused by Biome's partial Svelte support.
-  import favicon from '$lib/assets/favicon.svg';
-
   // biome-ignore lint/style/useConst: Intentionally using let for Svelte prop reactivity.
   // biome-ignore lint/correctness/noUnusedVariables: To ignroe false positive linting errors caused by Biome's partial Svelte support.
   let { children } = $props();
@@ -13,10 +10,6 @@
   // Styles
   import '$lib/styles/reset.css';
 </script>
-
-<svelte:head>
-  <link rel="icon" href={favicon}>
-</svelte:head>
 
 <section id="hero">
   <h1>SvelteKit</h1>
