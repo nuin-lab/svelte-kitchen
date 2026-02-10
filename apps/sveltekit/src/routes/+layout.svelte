@@ -203,6 +203,11 @@
       &:hover {
         background-color: var(--black);
         color: var(--white);
+
+          &::after {
+            background-color: var(--white);
+          }
+        }
       }
     }
   }
