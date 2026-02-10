@@ -47,6 +47,8 @@
     body {
       display: grid;
 
+      max-height: 100dvh;
+
       background-color: var(--white);
       color: var(--black);
 
@@ -171,6 +173,8 @@
     grid-row: 1 / 4;
 
     background-color: var(--white-darken);
+
+    overflow: auto;
   }
 
   #back,
