@@ -16,7 +16,7 @@
   <p>
     Sveltekitでいろいろな実装を試す場。
     <br>
-    すべてSPA+CSRでの実装。
+    すべてSPA+CSRで実装されている。
   </p>
 </section>
 
