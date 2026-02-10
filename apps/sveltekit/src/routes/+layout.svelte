@@ -24,8 +24,8 @@
 
 <div id="viewport">{@render children()}</div>
 
-<a id="back" href="/">Svelte Kitchen</a>
-<a id="next" href="/routify">Routify</a>
+<div id="back"><a href="/">Svelte Kitchen</a></div>
+<div id="next"></div>
 
 <footer>
   <div>© nuin</div>
@@ -175,6 +175,9 @@
 
   #back,
   #next {
+    grid-row: 1 / 4;
+
+    > a {
     display: flex;
     align-items: center;
     justify-content: end;
@@ -182,6 +185,8 @@
     position: relative;
 
     padding-inline: 2rem;
+
+    width: 100%;
 
     &::after {
       content: "";
@@ -192,9 +197,6 @@
       aspect-ratio: 1;
 
       background-color: var(--black);
-      background-size: contain;
-
-      clip-path: polygon(100% 0, 0% 100%, 100% 100%);
     }
 
     @media (hover: hover) and (pointer: fine) {
@@ -207,13 +209,12 @@
 
   #back {
     grid-column: 1 / 2;
-    grid-row: 1 / 4;
 
     border-right: 1px solid;
 
     writing-mode: sideways-lr;
 
-    &::after {
+    > a::after {
       top: 0;
       left: 0;
 
@@ -223,15 +224,16 @@
 
   #next {
     grid-column: 5 / 6;
-    grid-row: 1 / 4;
 
     border-left: 1px solid;
 
     writing-mode: sideways-rl;
 
-    &::after {
+    > a::after {
       bottom: 0;
       right: 0;
+
+      clip-path: polygon(100% 0, 0% 100%, 100% 100%);
     }
   }
 
