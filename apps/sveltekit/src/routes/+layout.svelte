@@ -81,8 +81,16 @@
     border-right: 1px solid;
     border-bottom: 1px solid;
 
+    > p {
+      margin-block: 1.5em 0;
+    }
+
     @media screen and (width >= 1200px) {
       padding: 4rem;
+
+      > p {
+        font-size: 1.1em;
+      }
     }
   }
 
