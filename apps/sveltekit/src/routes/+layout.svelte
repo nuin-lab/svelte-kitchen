@@ -3,9 +3,16 @@
    - file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
 
 <script lang="ts">
+  // Types
+  import type { Snippet } from 'svelte';
+
+  type Props = {
+    children: Snippet<[]>;
+  };
+
   // biome-ignore lint/style/useConst: Intentionally using let for Svelte prop reactivity.
   // biome-ignore lint/correctness/noUnusedVariables: To ignroe false positive linting errors caused by Biome's partial Svelte support.
-  let { children } = $props();
+  let { children }: Props = $props();
 
   // Styles
   import '$lib/styles/reset.css';
