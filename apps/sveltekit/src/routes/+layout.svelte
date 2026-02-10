@@ -152,8 +152,7 @@
     }
 
     p {
-      margin: 0;
-      margin-top: 0.5rem;
+      margin-block: 0.5rem 0;
 
       font-size: 0.75em;
     }
