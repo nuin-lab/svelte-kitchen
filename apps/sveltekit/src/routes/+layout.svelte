@@ -18,12 +18,31 @@
   <link rel="icon" href={favicon}>
 </svelte:head>
 
-{@render children()}
+<section id="hero">
+  <h1>SvelteKit</h1>
+  <p>
+    Sveltekitでいろいろな実装を試す場。
+    <br>
+    すべてSPA+CSRでの実装。
+  </p>
+</section>
+
+<nav></nav>
+
+<div id="viewport">{@render children()}</div>
+
+<a id="back" href="/">Svelte Kitchen</a>
+<a id="next" href="/routify">Routify</a>
+
+<footer>
+  <div>© nuin</div>
+</footer>
 
 <style>
   :root {
     --black: hsl(16, 24%, 16%);
     --white: hsl(16, 8%, 92%);
+    --white-darken: hsl(16, 8%, 88%);
 
     --bdr-wd: 1px;
     --bdr-rds: 0.5rem;
@@ -33,10 +52,17 @@
 
   :global {
     body {
+      display: grid;
+
       background-color: var(--white);
       color: var(--black);
 
       font-family: "Archivo", sans-serif;
+
+      @media screen and (width >= 1200px) {
+        grid-template-columns: 90px 1.5fr 320px 512px 90px;
+        grid-template-rows: auto 0.5fr 2fr;
+      }
     }
 
     h1 {
@@ -49,5 +75,173 @@
 
       opacity: 0.75;
     }
+
+    a {
+      color: var(--black);
+      text-decoration: none;
+    }
+  }
+
+  #hero {
+    grid-column: 2 / 4;
+
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+
+    @media screen and (width >= 1200px) {
+      padding: 4rem;
+    }
+  }
+
+  h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+
+    &::before {
+      content: "/";
+      margin-right: 1rem;
+    }
+  }
+
+  nav {
+    grid-column: 3 / 4;
+    grid-row: 2 / 4;
+
+    border-right: 1px solid;
+
+    > ul {
+      margin: 0;
+      margin-right: 1.5em;
+      padding: 1em 0;
+
+      height: 100%;
+
+      border-right: 1px solid;
+
+      list-style: none;
+    }
+
+    li {
+      position: relative;
+      padding-right: 1.5em;
+
+      text-align: end;
+
+      &::before {
+        --size: 0.5em;
+        --half: var(--size) / 2;
+
+        content: "";
+        display: block;
+
+        position: absolute;
+        top: calc(0.5lh - var(--half));
+        right: calc(-1 * var(--half));
+
+        width: var(--size);
+        aspect-ratio: 1;
+
+        background-color: var(--white);
+
+        border: 1px solid;
+        border-radius: var(--size);
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        &:has(a:hover)::before {
+          background-color: var(--black);
+        }
+      }
+    }
+
+    a {
+      font-size: 1.25em;
+    }
+
+    p {
+      margin: 0;
+      margin-top: 0.5rem;
+
+      font-size: 0.75em;
+    }
+  }
+
+  #viewport {
+    grid-column: 4 / 5;
+    grid-row: 1 / 4;
+
+    background-color: var(--white-darken);
+  }
+
+  #back,
+  #next {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+    position: relative;
+
+    padding-inline: 2rem;
+
+    &::after {
+      content: "";
+
+      position: absolute;
+
+      width: 1rem;
+      aspect-ratio: 1;
+
+      background-color: var(--black);
+      background-size: contain;
+
+      clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background-color: var(--black);
+        color: var(--white);
+      }
+    }
+  }
+
+  #back {
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+
+    border-right: 1px solid;
+
+    writing-mode: sideways-lr;
+
+    &::after {
+      top: 0;
+      left: 0;
+
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+    }
+  }
+
+  #next {
+    grid-column: 5 / 6;
+    grid-row: 1 / 4;
+
+    border-left: 1px solid;
+
+    writing-mode: sideways-rl;
+
+    &::after {
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  footer {
+    display: grid;
+    align-items: end;
+
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+
+    padding: 2rem 4rem;
   }
 </style>
