@@ -6,6 +6,12 @@
   // Types
   import type { Snippet } from 'svelte';
 
+  import type { NavItem } from '$lib/layouts/Nav.svelte';
+
+  // Layouts
+  // biome-ignore lint/correctness/noUnusedImports: To ignroe false positive linting errors caused by Biome's partial Svelte support.
+  import Nav from '$lib/layouts/Nav.svelte';
+
   type Props = {
     children: Snippet<[]>;
   };
@@ -16,6 +22,9 @@
 
   // Styles
   import '$lib/styles/reset.css';
+
+  // biome-ignore lint/correctness/noUnusedVariables: To ignroe false positive linting errors caused by Biome's partial Svelte support.
+  const navItems: NavItem[] = [];
 </script>
 
 <section id="hero">
@@ -27,7 +36,7 @@
   </p>
 </section>
 
-<nav></nav>
+<Nav items={navItems} />
 
 <div id="viewport">{@render children()}</div>
 
@@ -113,68 +122,6 @@
     }
   }
 
-  nav {
-    grid-column: 3 / 4;
-    grid-row: 2 / 4;
-
-    border-right: 1px solid;
-
-    > ul {
-      margin: 0;
-      margin-right: 1.5em;
-      padding: 1em 0;
-
-      height: 100%;
-
-      border-right: 1px solid;
-
-      list-style: none;
-    }
-
-    li {
-      position: relative;
-      padding-right: 1.5em;
-
-      text-align: end;
-
-      &::before {
-        --size: 0.5em;
-        --half: var(--size) / 2;
-
-        content: "";
-        display: block;
-
-        position: absolute;
-        top: calc(0.5lh - var(--half));
-        right: calc(-1 * var(--half));
-
-        width: var(--size);
-        aspect-ratio: 1;
-
-        background-color: var(--white);
-
-        border: 1px solid;
-        border-radius: var(--size);
-      }
-
-      @media (hover: hover) and (pointer: fine) {
-        &:has(a:hover)::before {
-          background-color: var(--black);
-        }
-      }
-    }
-
-    a {
-      font-size: 1.25em;
-    }
-
-    p {
-      margin-block: 0.5rem 0;
-
-      font-size: 0.75em;
-    }
-  }
-
   #viewport {
     grid-column: 4 / 5;
     grid-row: 1 / 4;
@@ -189,31 +136,31 @@
     grid-row: 1 / 4;
 
     > a {
-    display: flex;
-    align-items: center;
-    justify-content: end;
+      display: flex;
+      align-items: center;
+      justify-content: end;
 
-    position: relative;
+      position: relative;
 
-    padding-inline: 2rem;
+      padding-inline: 2rem;
 
-    width: 100%;
+      width: 100%;
 
-    &::after {
-      content: "";
+      &::after {
+        content: "";
 
-      position: absolute;
+        position: absolute;
 
-      width: 1rem;
-      aspect-ratio: 1;
+        width: 1rem;
+        aspect-ratio: 1;
 
-      background-color: var(--black);
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      &:hover {
         background-color: var(--black);
-        color: var(--white);
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          background-color: var(--black);
+          color: var(--white);
 
           &::after {
             background-color: var(--white);
