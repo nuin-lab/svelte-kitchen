@@ -95,7 +95,7 @@
   }
 
   h1 {
-    font-size: 4rem;
+    font-size: 4em;
     text-transform: uppercase;
 
     &::before {
